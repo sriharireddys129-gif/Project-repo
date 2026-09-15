@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  content   String
+  createdAt DateTime @default(now())
+}
+
+model Issue {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  status      String   @default("OPEN")
+  createdAt   DateTime @default(now())
+}
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  date        String
+  location    String
+  createdAt   DateTime @default(now())
+}
+
+model Recommendation {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  category    String
+  createdAt   DateTime @default(now())
+}
